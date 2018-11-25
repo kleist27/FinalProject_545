@@ -1,0 +1,8 @@
+prefix=/home/car-user/FinaProject/devel
+
+Name: lab1
+Description: Description of lab1
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/car-user/FinaProject/devel/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/car-user/FinaProject/devel
+
+Name: serial
+Description: Description of serial
+Version: 1.2.1
+Cflags: -I/home/car-user/FinaProject/src/serial/include
+Libs: -L/home/car-user/FinaProject/devel/lib -lserial -lrt -lpthread
+Requires: 

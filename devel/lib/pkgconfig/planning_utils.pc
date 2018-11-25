@@ -1,0 +1,8 @@
+prefix=/home/car-user/FinaProject/devel
+
+Name: planning_utils
+Description: Description of planning_utils
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/car-user/FinaProject/devel/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/car-user/FinaProject/install
+
+Name: push_button_utils
+Description: Description of push_button_utils
+Version: 0.0.0
+Cflags: -I/home/car-user/FinaProject/install/include
+Libs: -L/home/car-user/FinaProject/install/lib 
+Requires: 

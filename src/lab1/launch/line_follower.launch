@@ -1,0 +1,15 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+	<node name="line_follower" type ="line_follower.py" pkg ="lab1" output="screen">
+		<param name="~plan_topic" value="/planner_node/car_plan" />
+		<param name="~pose_topic" value="/sim_car_pose/pose" />
+		<param name="~plan_lookahead" value="2" />
+		<param name="~translation_weight" value="0.8" />
+		<param name="~rotation_weight" value="0.2" />
+		<param name="~kp" value="8.25" />
+		<param name="~ki" value="0.05" />
+		<param name="~kd" value="0.15" />
+        <param name="~error_buff_length" value="10" />
+        <param name="~speed" value="1.0" />
+	</node>
+</launch>

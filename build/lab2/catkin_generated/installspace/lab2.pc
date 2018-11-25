@@ -1,0 +1,8 @@
+prefix=/home/car-user/FinaProject/install
+
+Name: lab2
+Description: Description of lab2
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/car-user/FinaProject/install/lib 
+Requires: 
