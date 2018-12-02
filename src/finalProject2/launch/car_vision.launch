@@ -1,0 +1,9 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+
+    <node name="VisionFinder" pkg="lab1" type="car_vision.py" output="screen">
+        <param name="sub_topic" type="string" value="/camera/color/image_raw" />
+    </node>
+
+</launch>
+

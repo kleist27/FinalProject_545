@@ -1,0 +1,8 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+
+	<node name="point_map" type="points.py" pkg="lab1" output="screen" >
+	</node>
+
+</launch>
+
