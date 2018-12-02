@@ -138,6 +138,12 @@ def pose_array_to_plan(msg):
     result.append(pose_to_config(msg.poses[i]))
   return result
 
+def pose_array_to_plan(msg):
+  result = []
+  for i in xrange(len(msg.poses)):
+    result.append(pose_to_config(msg.poses[i]))
+  return result
+
 def main():
 
   rospy.init_node('line_follower', anonymous=True) # Initialize the node

@@ -50,7 +50,7 @@ class LaserWanderer:
     self.laser_sub = rospy.Subscriber(SCAN_TOPIC, LaserScan, self.wander_cb, queue_size=2)
     self.viz_pub = rospy.Publisher(VIZ_TOPIC, PoseArray, queue_size=1)
     self.viz_sub = rospy.Subscriber(POSE_TOPIC, PoseStamped, self.viz_sub_cb, queue_size=1)
-
+    self.pose_sub = rospy.Subscriber("pf/inferred_pose", PoseStamped, queue_size = 1) # Publishes the expected pose
   '''
   Vizualize the rollouts. Transforms the rollouts to be in the frame of the world.
   Only display the last pose of each rollout to prevent lagginess
@@ -113,7 +113,12 @@ class LaserWanderer:
   Controls the steering angle in response to the received laser scan. Uses approximately
   self.compute_time amount of time to compute the control
     msg: A LaserScan
-  '''    
+  '''
+  def euclidean_distance(self, goal_pose):
+    """Euclidean distance between current pose and the goal."""
+    return np.sqrt(np.square((goal_pose.x - self.pose.x)) +
+           np.square(goal_pose.y - self.pose.y))
+  
   def wander_cb(self, msg):
     start = rospy.Time.now().to_sec()
     
@@ -235,7 +240,9 @@ def main():
   compute_time = rospy.get_param("~compute_time", 0.09)
   laser_spread = rospy.get_param("~laser_spread", 0.314)
   laser_offset = rospy.get_param("~laser_offset", 1.0)
-  
+  good_points_array=np.zeros((17,2))
+  good_points_array=[[2600,660],[1880,440],[1435,545],[1250,460],[540,835]]
+  print(good_points_array)
   rollouts, deltas = generate_mpc_rollouts(speed, min_delta, max_delta,
                                            delta_incr, dt, T, car_length)
                                            
