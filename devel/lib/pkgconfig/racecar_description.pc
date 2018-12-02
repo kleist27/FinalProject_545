@@ -1,8 +1,8 @@
-prefix=/home/car-user/FinaProject/devel
+prefix=/home/car-user/FinalProject_545/devel
 
 Name: racecar_description
 Description: Description of racecar_description
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/car-user/FinaProject/devel/lib 
+Libs: -L/home/car-user/FinalProject_545/devel/lib 
 Requires: 

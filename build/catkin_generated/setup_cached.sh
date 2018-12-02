@@ -7,7 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/car-user/FinaProject/devel:$CMAKE_PREFIX_PATH"
-export PWD="/home/car-user/FinaProject/build"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/car-user/FinaProject/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/car-user/FinaProject/src:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/car-user/FinalProject_545/devel:$CMAKE_PREFIX_PATH"
+export PWD="/home/car-user/FinalProject_545/build"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/car-user/FinalProject_545/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/car-user/FinalProject_545/src:$ROS_PACKAGE_PATH"

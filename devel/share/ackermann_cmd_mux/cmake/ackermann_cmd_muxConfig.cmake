@@ -67,14 +67,14 @@ set(ackermann_cmd_mux_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(ackermann_cmd_mux_SOURCE_PREFIX /home/car-user/FinaProject/src/racecar_base_public/ackermann_cmd_mux)
-  set(ackermann_cmd_mux_DEVEL_PREFIX /home/car-user/FinaProject/devel)
+  set(ackermann_cmd_mux_SOURCE_PREFIX /home/car-user/FinalProject_545/src/racecar_base_public/ackermann_cmd_mux)
+  set(ackermann_cmd_mux_DEVEL_PREFIX /home/car-user/FinalProject_545/devel)
   set(ackermann_cmd_mux_INSTALL_PREFIX "")
   set(ackermann_cmd_mux_PREFIX ${ackermann_cmd_mux_DEVEL_PREFIX})
 else()
   set(ackermann_cmd_mux_SOURCE_PREFIX "")
   set(ackermann_cmd_mux_DEVEL_PREFIX "")
-  set(ackermann_cmd_mux_INSTALL_PREFIX /home/car-user/FinaProject/install)
+  set(ackermann_cmd_mux_INSTALL_PREFIX /home/car-user/FinalProject_545/install)
   set(ackermann_cmd_mux_PREFIX ${ackermann_cmd_mux_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(ackermann_cmd_mux_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/car-user/FinaProject/devel/include;/home/car-user/FinaProject/src/racecar_base_public/ackermann_cmd_mux/include " STREQUAL " ")
+if(NOT "/home/car-user/FinalProject_545/devel/include;/home/car-user/FinalProject_545/src/racecar_base_public/ackermann_cmd_mux/include " STREQUAL " ")
   set(ackermann_cmd_mux_INCLUDE_DIRS "")
-  set(_include_dirs "/home/car-user/FinaProject/devel/include;/home/car-user/FinaProject/src/racecar_base_public/ackermann_cmd_mux/include")
+  set(_include_dirs "/home/car-user/FinalProject_545/devel/include;/home/car-user/FinalProject_545/src/racecar_base_public/ackermann_cmd_mux/include")
   if(NOT "https://github.mit.edu/racecar/racecar/issues " STREQUAL " ")
     set(_report "Check the issue tracker 'https://github.mit.edu/racecar/racecar/issues' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://ros.org/wiki/ackermann_cmd_mux " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/car-user/FinaProject/devel/include;/home/car-user/FinaProject/src/
         message(FATAL_ERROR "Project 'ackermann_cmd_mux' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'ackermann_cmd_mux' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/car-user/FinaProject/src/racecar_base_public/ackermann_cmd_mux/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'ackermann_cmd_mux' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/car-user/FinalProject_545/src/racecar_base_public/ackermann_cmd_mux/${idir}'.  ${_report}")
     endif()
     _list_append_unique(ackermann_cmd_mux_INCLUDE_DIRS ${include})
   endforeach()
@@ -129,7 +129,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/car-user/FinaProject/devel/lib;/home/car-user/Lab2/devel/lib;/home/car-user/EE545/devel/lib;/home/car-user/Lab1/devel/lib;/home/car-user/racecar_ws/devel/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/car-user/FinalProject_545/devel/lib;/home/car-user/racecar_ws/devel/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

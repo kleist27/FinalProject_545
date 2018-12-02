@@ -4,8 +4,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/vesc_driver_nodelet.dir/src/vesc_interface.cpp.o"
   "CMakeFiles/vesc_driver_nodelet.dir/src/vesc_packet.cpp.o"
   "CMakeFiles/vesc_driver_nodelet.dir/src/vesc_packet_factory.cpp.o"
-  "/home/car-user/FinaProject/devel/lib/libvesc_driver_nodelet.pdb"
-  "/home/car-user/FinaProject/devel/lib/libvesc_driver_nodelet.so"
+  "/home/car-user/FinalProject_545/devel/lib/libvesc_driver_nodelet.pdb"
+  "/home/car-user/FinalProject_545/devel/lib/libvesc_driver_nodelet.so"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/car-user/FinaProject/src/serial/src/impl/list_ports/list_ports_linux.cc" "/home/car-user/FinaProject/build/serial/CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.o"
-  "/home/car-user/FinaProject/src/serial/src/impl/unix.cc" "/home/car-user/FinaProject/build/serial/CMakeFiles/serial.dir/src/impl/unix.cc.o"
-  "/home/car-user/FinaProject/src/serial/src/serial.cc" "/home/car-user/FinaProject/build/serial/CMakeFiles/serial.dir/src/serial.cc.o"
+  "/home/car-user/FinalProject_545/src/serial/src/impl/list_ports/list_ports_linux.cc" "/home/car-user/FinalProject_545/build/serial/CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.o"
+  "/home/car-user/FinalProject_545/src/serial/src/impl/unix.cc" "/home/car-user/FinalProject_545/build/serial/CMakeFiles/serial.dir/src/impl/unix.cc.o"
+  "/home/car-user/FinalProject_545/src/serial/src/serial.cc" "/home/car-user/FinalProject_545/build/serial/CMakeFiles/serial.dir/src/serial.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -17,7 +17,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/car-user/FinaProject/src/serial/include"
+  "/home/car-user/FinalProject_545/src/serial/include"
   )
 
 # Targets to which this target links.

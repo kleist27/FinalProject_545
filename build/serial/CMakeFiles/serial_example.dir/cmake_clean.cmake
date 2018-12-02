@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/serial_example.dir/examples/serial_example.cc.o"
-  "/home/car-user/FinaProject/devel/lib/serial/serial_example.pdb"
-  "/home/car-user/FinaProject/devel/lib/serial/serial_example"
+  "/home/car-user/FinalProject_545/devel/lib/serial/serial_example.pdb"
+  "/home/car-user/FinalProject_545/devel/lib/serial/serial_example"
 )
 
 # Per-language clean rules from dependency scanning.

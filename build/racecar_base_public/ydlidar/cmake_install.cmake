@@ -1,8 +1,8 @@
-# Install script for directory: /home/car-user/FinaProject/src/racecar_base_public/ydlidar
+# Install script for directory: /home/car-user/FinalProject_545/src/racecar_base_public/ydlidar
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/car-user/FinaProject/install")
+  set(CMAKE_INSTALL_PREFIX "/home/car-user/FinalProject_545/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,18 +33,18 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/car-user/FinaProject/build/racecar_base_public/ydlidar/catkin_generated/installspace/ydlidar.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/car-user/FinalProject_545/build/racecar_base_public/ydlidar/catkin_generated/installspace/ydlidar.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ydlidar/cmake" TYPE FILE FILES
-    "/home/car-user/FinaProject/build/racecar_base_public/ydlidar/catkin_generated/installspace/ydlidarConfig.cmake"
-    "/home/car-user/FinaProject/build/racecar_base_public/ydlidar/catkin_generated/installspace/ydlidarConfig-version.cmake"
+    "/home/car-user/FinalProject_545/build/racecar_base_public/ydlidar/catkin_generated/installspace/ydlidarConfig.cmake"
+    "/home/car-user/FinalProject_545/build/racecar_base_public/ydlidar/catkin_generated/installspace/ydlidarConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ydlidar" TYPE FILE FILES "/home/car-user/FinaProject/src/racecar_base_public/ydlidar/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ydlidar" TYPE FILE FILES "/home/car-user/FinalProject_545/src/racecar_base_public/ydlidar/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -54,7 +54,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/ydlidar/ydlidar_node"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ydlidar" TYPE EXECUTABLE FILES "/home/car-user/FinaProject/devel/lib/ydlidar/ydlidar_node")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ydlidar" TYPE EXECUTABLE FILES "/home/car-user/FinalProject_545/devel/lib/ydlidar/ydlidar_node")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/ydlidar/ydlidar_node" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/ydlidar/ydlidar_node")
     file(RPATH_CHANGE
@@ -74,7 +74,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/ydlidar/ydlidar_client"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ydlidar" TYPE EXECUTABLE FILES "/home/car-user/FinaProject/devel/lib/ydlidar/ydlidar_client")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ydlidar" TYPE EXECUTABLE FILES "/home/car-user/FinalProject_545/devel/lib/ydlidar/ydlidar_client")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/ydlidar/ydlidar_client" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/ydlidar/ydlidar_client")
     file(RPATH_CHANGE
@@ -89,9 +89,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ydlidar" TYPE DIRECTORY FILES
-    "/home/car-user/FinaProject/src/racecar_base_public/ydlidar/launch"
-    "/home/car-user/FinaProject/src/racecar_base_public/ydlidar/startup"
-    "/home/car-user/FinaProject/src/racecar_base_public/ydlidar/sdk"
+    "/home/car-user/FinalProject_545/src/racecar_base_public/ydlidar/launch"
+    "/home/car-user/FinalProject_545/src/racecar_base_public/ydlidar/startup"
+    "/home/car-user/FinalProject_545/src/racecar_base_public/ydlidar/sdk"
     USE_SOURCE_PERMISSIONS)
 endif()
 

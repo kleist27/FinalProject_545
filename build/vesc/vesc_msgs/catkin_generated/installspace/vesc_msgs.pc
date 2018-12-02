@@ -1,8 +1,8 @@
-prefix=/home/car-user/FinaProject/install
+prefix=/home/car-user/FinalProject_545/install
 
 Name: vesc_msgs
 Description: Description of vesc_msgs
 Version: 0.0.1
-Cflags: -I/home/car-user/FinaProject/install/include
-Libs: -L/home/car-user/FinaProject/install/lib 
+Cflags: -I/home/car-user/FinalProject_545/install/include
+Libs: -L/home/car-user/FinalProject_545/install/lib 
 Requires: std_msgs message_runtime

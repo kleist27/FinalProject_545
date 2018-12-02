@@ -1,8 +1,8 @@
-# Install script for directory: /home/car-user/FinaProject/src/racecar_base_public/racecar
+# Install script for directory: /home/car-user/FinalProject_545/src/racecar_base_public/racecar
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/car-user/FinaProject/install")
+  set(CMAKE_INSTALL_PREFIX "/home/car-user/FinalProject_545/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,21 +33,21 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/car-user/FinaProject/build/racecar_base_public/racecar/catkin_generated/installspace/racecar.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/car-user/FinalProject_545/build/racecar_base_public/racecar/catkin_generated/installspace/racecar.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/racecar/cmake" TYPE FILE FILES
-    "/home/car-user/FinaProject/build/racecar_base_public/racecar/catkin_generated/installspace/racecarConfig.cmake"
-    "/home/car-user/FinaProject/build/racecar_base_public/racecar/catkin_generated/installspace/racecarConfig-version.cmake"
+    "/home/car-user/FinalProject_545/build/racecar_base_public/racecar/catkin_generated/installspace/racecarConfig.cmake"
+    "/home/car-user/FinalProject_545/build/racecar_base_public/racecar/catkin_generated/installspace/racecarConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/racecar" TYPE FILE FILES "/home/car-user/FinaProject/src/racecar_base_public/racecar/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/racecar" TYPE FILE FILES "/home/car-user/FinalProject_545/src/racecar_base_public/racecar/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/racecar" TYPE DIRECTORY FILES "/home/car-user/FinaProject/src/racecar_base_public/racecar/launch")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/racecar" TYPE DIRECTORY FILES "/home/car-user/FinalProject_545/src/racecar_base_public/racecar/launch")
 endif()
 

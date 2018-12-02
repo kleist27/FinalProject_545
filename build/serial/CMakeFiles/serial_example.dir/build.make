@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/car-user/FinaProject/src
+CMAKE_SOURCE_DIR = /home/car-user/FinalProject_545/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/car-user/FinaProject/build
+CMAKE_BINARY_DIR = /home/car-user/FinalProject_545/build
 
 # Include any dependencies generated for this target.
 include serial/CMakeFiles/serial_example.dir/depend.make
@@ -58,17 +58,17 @@ include serial/CMakeFiles/serial_example.dir/progress.make
 include serial/CMakeFiles/serial_example.dir/flags.make
 
 serial/CMakeFiles/serial_example.dir/examples/serial_example.cc.o: serial/CMakeFiles/serial_example.dir/flags.make
-serial/CMakeFiles/serial_example.dir/examples/serial_example.cc.o: /home/car-user/FinaProject/src/serial/examples/serial_example.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/car-user/FinaProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object serial/CMakeFiles/serial_example.dir/examples/serial_example.cc.o"
-	cd /home/car-user/FinaProject/build/serial && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/serial_example.dir/examples/serial_example.cc.o -c /home/car-user/FinaProject/src/serial/examples/serial_example.cc
+serial/CMakeFiles/serial_example.dir/examples/serial_example.cc.o: /home/car-user/FinalProject_545/src/serial/examples/serial_example.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/car-user/FinalProject_545/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object serial/CMakeFiles/serial_example.dir/examples/serial_example.cc.o"
+	cd /home/car-user/FinalProject_545/build/serial && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/serial_example.dir/examples/serial_example.cc.o -c /home/car-user/FinalProject_545/src/serial/examples/serial_example.cc
 
 serial/CMakeFiles/serial_example.dir/examples/serial_example.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/serial_example.dir/examples/serial_example.cc.i"
-	cd /home/car-user/FinaProject/build/serial && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/car-user/FinaProject/src/serial/examples/serial_example.cc > CMakeFiles/serial_example.dir/examples/serial_example.cc.i
+	cd /home/car-user/FinalProject_545/build/serial && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/car-user/FinalProject_545/src/serial/examples/serial_example.cc > CMakeFiles/serial_example.dir/examples/serial_example.cc.i
 
 serial/CMakeFiles/serial_example.dir/examples/serial_example.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/serial_example.dir/examples/serial_example.cc.s"
-	cd /home/car-user/FinaProject/build/serial && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/car-user/FinaProject/src/serial/examples/serial_example.cc -o CMakeFiles/serial_example.dir/examples/serial_example.cc.s
+	cd /home/car-user/FinalProject_545/build/serial && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/car-user/FinalProject_545/src/serial/examples/serial_example.cc -o CMakeFiles/serial_example.dir/examples/serial_example.cc.s
 
 serial/CMakeFiles/serial_example.dir/examples/serial_example.cc.o.requires:
 
@@ -88,15 +88,15 @@ serial_example_OBJECTS = \
 # External object files for target serial_example
 serial_example_EXTERNAL_OBJECTS =
 
-/home/car-user/FinaProject/devel/lib/serial/serial_example: serial/CMakeFiles/serial_example.dir/examples/serial_example.cc.o
-/home/car-user/FinaProject/devel/lib/serial/serial_example: serial/CMakeFiles/serial_example.dir/build.make
-/home/car-user/FinaProject/devel/lib/serial/serial_example: /home/car-user/FinaProject/devel/lib/libserial.so
-/home/car-user/FinaProject/devel/lib/serial/serial_example: serial/CMakeFiles/serial_example.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/car-user/FinaProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/car-user/FinaProject/devel/lib/serial/serial_example"
-	cd /home/car-user/FinaProject/build/serial && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/serial_example.dir/link.txt --verbose=$(VERBOSE)
+/home/car-user/FinalProject_545/devel/lib/serial/serial_example: serial/CMakeFiles/serial_example.dir/examples/serial_example.cc.o
+/home/car-user/FinalProject_545/devel/lib/serial/serial_example: serial/CMakeFiles/serial_example.dir/build.make
+/home/car-user/FinalProject_545/devel/lib/serial/serial_example: /home/car-user/FinalProject_545/devel/lib/libserial.so
+/home/car-user/FinalProject_545/devel/lib/serial/serial_example: serial/CMakeFiles/serial_example.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/car-user/FinalProject_545/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/car-user/FinalProject_545/devel/lib/serial/serial_example"
+	cd /home/car-user/FinalProject_545/build/serial && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/serial_example.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-serial/CMakeFiles/serial_example.dir/build: /home/car-user/FinaProject/devel/lib/serial/serial_example
+serial/CMakeFiles/serial_example.dir/build: /home/car-user/FinalProject_545/devel/lib/serial/serial_example
 
 .PHONY : serial/CMakeFiles/serial_example.dir/build
 
@@ -105,10 +105,10 @@ serial/CMakeFiles/serial_example.dir/requires: serial/CMakeFiles/serial_example.
 .PHONY : serial/CMakeFiles/serial_example.dir/requires
 
 serial/CMakeFiles/serial_example.dir/clean:
-	cd /home/car-user/FinaProject/build/serial && $(CMAKE_COMMAND) -P CMakeFiles/serial_example.dir/cmake_clean.cmake
+	cd /home/car-user/FinalProject_545/build/serial && $(CMAKE_COMMAND) -P CMakeFiles/serial_example.dir/cmake_clean.cmake
 .PHONY : serial/CMakeFiles/serial_example.dir/clean
 
 serial/CMakeFiles/serial_example.dir/depend:
-	cd /home/car-user/FinaProject/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/car-user/FinaProject/src /home/car-user/FinaProject/src/serial /home/car-user/FinaProject/build /home/car-user/FinaProject/build/serial /home/car-user/FinaProject/build/serial/CMakeFiles/serial_example.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/car-user/FinalProject_545/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/car-user/FinalProject_545/src /home/car-user/FinalProject_545/src/serial /home/car-user/FinalProject_545/build /home/car-user/FinalProject_545/build/serial /home/car-user/FinalProject_545/build/serial/CMakeFiles/serial_example.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : serial/CMakeFiles/serial_example.dir/depend
 

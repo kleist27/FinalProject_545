@@ -1,8 +1,8 @@
-# Install script for directory: /home/car-user/FinaProject/src/serial/tests
+# Install script for directory: /home/car-user/FinalProject_545/src/serial/tests
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/car-user/FinaProject/install")
+  set(CMAKE_INSTALL_PREFIX "/home/car-user/FinalProject_545/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

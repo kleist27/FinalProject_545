@@ -3,8 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/vesc_ackermann_nodelet.dir/src/ackermann_to_vesc.cpp.o"
   "CMakeFiles/vesc_ackermann_nodelet.dir/src/vesc_to_odom_nodelet.cpp.o"
   "CMakeFiles/vesc_ackermann_nodelet.dir/src/vesc_to_odom.cpp.o"
-  "/home/car-user/FinaProject/devel/lib/libvesc_ackermann_nodelet.pdb"
-  "/home/car-user/FinaProject/devel/lib/libvesc_ackermann_nodelet.so"
+  "/home/car-user/FinalProject_545/devel/lib/libvesc_ackermann_nodelet.pdb"
+  "/home/car-user/FinalProject_545/devel/lib/libvesc_ackermann_nodelet.so"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,8 +1,8 @@
-prefix=/home/car-user/FinaProject/install
+prefix=/home/car-user/FinalProject_545/install
 
 Name: serial
 Description: Description of serial
 Version: 1.2.1
-Cflags: -I/home/car-user/FinaProject/install/include
-Libs: -L/home/car-user/FinaProject/install/lib -lserial -lrt -lpthread
+Cflags: -I/home/car-user/FinalProject_545/install/include
+Libs: -L/home/car-user/FinalProject_545/install/lib -lserial -lrt -lpthread
 Requires: 

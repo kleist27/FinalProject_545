@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/car-user/FinaProject/src
+CMAKE_SOURCE_DIR = /home/car-user/FinalProject_545/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/car-user/FinaProject/build
+CMAKE_BINARY_DIR = /home/car-user/FinalProject_545/build
 
 # Utility rule file for run_tests_serial_gtest.
 
@@ -63,10 +63,10 @@ serial/tests/CMakeFiles/run_tests_serial_gtest.dir/build: run_tests_serial_gtest
 .PHONY : serial/tests/CMakeFiles/run_tests_serial_gtest.dir/build
 
 serial/tests/CMakeFiles/run_tests_serial_gtest.dir/clean:
-	cd /home/car-user/FinaProject/build/serial/tests && $(CMAKE_COMMAND) -P CMakeFiles/run_tests_serial_gtest.dir/cmake_clean.cmake
+	cd /home/car-user/FinalProject_545/build/serial/tests && $(CMAKE_COMMAND) -P CMakeFiles/run_tests_serial_gtest.dir/cmake_clean.cmake
 .PHONY : serial/tests/CMakeFiles/run_tests_serial_gtest.dir/clean
 
 serial/tests/CMakeFiles/run_tests_serial_gtest.dir/depend:
-	cd /home/car-user/FinaProject/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/car-user/FinaProject/src /home/car-user/FinaProject/src/serial/tests /home/car-user/FinaProject/build /home/car-user/FinaProject/build/serial/tests /home/car-user/FinaProject/build/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/car-user/FinalProject_545/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/car-user/FinalProject_545/src /home/car-user/FinalProject_545/src/serial/tests /home/car-user/FinalProject_545/build /home/car-user/FinalProject_545/build/serial/tests /home/car-user/FinalProject_545/build/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : serial/tests/CMakeFiles/run_tests_serial_gtest.dir/depend
 

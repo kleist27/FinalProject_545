@@ -1,8 +1,8 @@
-prefix=/home/car-user/FinaProject/devel
+prefix=/home/car-user/FinalProject_545/devel
 
 Name: racecar
 Description: Description of racecar
 Version: 0.0.1
 Cflags: 
-Libs: -L/home/car-user/FinaProject/devel/lib 
+Libs: -L/home/car-user/FinalProject_545/devel/lib 
 Requires: razor_imu_9dof tf tf2_ros urg_node joy rosbag rostopic rviz gmapping hector_mapping robot_pose_ekf

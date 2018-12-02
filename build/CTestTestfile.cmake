@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/car-user/FinaProject/src
-# Build directory: /home/car-user/FinaProject/build
+# Source directory: /home/car-user/FinalProject_545/src
+# Build directory: /home/car-user/FinalProject_545/build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
@@ -10,8 +10,6 @@ subdirs(racecar_base_public/racecar_description)
 subdirs(serial)
 subdirs(vesc/vesc)
 subdirs(vesc/vesc_msgs)
-subdirs(lab1)
-subdirs(lab2)
 subdirs(racecar_base_public/planning_utils)
 subdirs(racecar_base_public/push_button_utils)
 subdirs(racecar_base_public/ackermann_cmd_mux)

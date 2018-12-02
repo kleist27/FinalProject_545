@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/gpio_lib.dir/src/jetsonGPIO.cpp.o"
-  "/home/car-user/FinaProject/devel/lib/libgpio_lib.pdb"
-  "/home/car-user/FinaProject/devel/lib/libgpio_lib.so"
+  "/home/car-user/FinalProject_545/devel/lib/libgpio_lib.pdb"
+  "/home/car-user/FinalProject_545/devel/lib/libgpio_lib.so"
 )
 
 # Per-language clean rules from dependency scanning.

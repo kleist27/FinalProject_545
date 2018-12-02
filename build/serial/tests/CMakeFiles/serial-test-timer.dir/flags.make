@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = -DROS_BUILD_SHARED_LIBS=1
 
-CXX_INCLUDES = -I/home/car-user/FinaProject/src/serial/include 
+CXX_INCLUDES = -I/home/car-user/FinalProject_545/src/serial/include 
 

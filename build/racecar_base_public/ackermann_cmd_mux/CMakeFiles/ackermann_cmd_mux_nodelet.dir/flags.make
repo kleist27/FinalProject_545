@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC
 
 CXX_DEFINES = -DHAVE_NEW_YAMLCPP -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"ackermann_cmd_mux\" -Dackermann_cmd_mux_nodelet_EXPORTS
 
-CXX_INCLUDES = -I/home/car-user/FinaProject/devel/include -I/home/car-user/FinaProject/src/racecar_base_public/ackermann_cmd_mux/include -I/opt/ros/kinetic/include -I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
+CXX_INCLUDES = -I/home/car-user/FinalProject_545/devel/include -I/home/car-user/FinalProject_545/src/racecar_base_public/ackermann_cmd_mux/include -I/opt/ros/kinetic/include -I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
 

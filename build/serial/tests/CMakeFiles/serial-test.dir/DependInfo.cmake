@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/car-user/FinaProject/src/serial/tests/unix_serial_tests.cc" "/home/car-user/FinaProject/build/serial/tests/CMakeFiles/serial-test.dir/unix_serial_tests.cc.o"
+  "/home/car-user/FinalProject_545/src/serial/tests/unix_serial_tests.cc" "/home/car-user/FinalProject_545/build/serial/tests/CMakeFiles/serial-test.dir/unix_serial_tests.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -15,13 +15,13 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/car-user/FinaProject/src/serial/include"
+  "/home/car-user/FinalProject_545/src/serial/include"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/car-user/FinaProject/build/gtest/gtest/CMakeFiles/gtest.dir/DependInfo.cmake"
-  "/home/car-user/FinaProject/build/serial/CMakeFiles/serial.dir/DependInfo.cmake"
+  "/home/car-user/FinalProject_545/build/gtest/gtest/CMakeFiles/gtest.dir/DependInfo.cmake"
+  "/home/car-user/FinalProject_545/build/serial/CMakeFiles/serial.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

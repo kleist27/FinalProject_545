@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=c++11
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"ydlidar\"
 
-CXX_INCLUDES = -I/opt/ros/kinetic/include -I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/car-user/FinaProject/src/racecar_base_public/ydlidar/src -I/home/car-user/FinaProject/src/racecar_base_public/ydlidar/sdk/include -I/home/car-user/FinaProject/src/racecar_base_public/ydlidar/sdk/src 
+CXX_INCLUDES = -I/opt/ros/kinetic/include -I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/car-user/FinalProject_545/src/racecar_base_public/ydlidar/src -I/home/car-user/FinalProject_545/src/racecar_base_public/ydlidar/sdk/include -I/home/car-user/FinalProject_545/src/racecar_base_public/ydlidar/sdk/src 
 

@@ -1,8 +1,8 @@
-prefix=/home/car-user/FinaProject/devel
+prefix=/home/car-user/FinalProject_545/devel
 
 Name: vesc_driver
 Description: Description of vesc_driver
 Version: 0.0.1
-Cflags: -I/home/car-user/FinaProject/src/vesc/vesc_driver/include
-Libs: -L/home/car-user/FinaProject/devel/lib 
+Cflags: -I/home/car-user/FinalProject_545/src/vesc/vesc_driver/include
+Libs: -L/home/car-user/FinalProject_545/devel/lib 
 Requires: nodelet pluginlib roscpp std_msgs vesc_msgs serial
