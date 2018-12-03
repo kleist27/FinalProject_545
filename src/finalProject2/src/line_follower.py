@@ -12,7 +12,19 @@ import utils
 
 # The topic to publish control commands to
 PUB_TOPIC = '/vesc/high_level/ackermann_cmd_mux/input/nav_0'
+'''
+quats = [[0,0,0.15,0.99],[0,0,-0.33,0.99],[0,0,-0.39,0.91],[0,0,-0.7,0.67],[0,0,-0.86,0.51],   #2600,600
+        [0,0,0.998,0.05],[0,0,0.985,0.17],[0,0,0.98,0.19],[0,0,0.83,0.54],[0,0,0.89,0.45],    #1880,440
+        [0,0,0.64,0.76],[0,0,-0.37,0.92],[0,0,-0.9,0.42],[0,0,-0.99,0.07],[0,0,0.91,0.41],[0,0,0.92,0.39],  #1435,545
+        [0,0,0.91,0.44],[0,0,0.99,0.001],[0,0,0.99,0.08],  #1250,460
+        [0,0,-0.99,0.11],[0,0,-0.97,0.21],[0,0,-0.85,0.51],[0,0,-0.57,0.82]]  #???
 
+poses = [[49.29,12.4],[51.35,12.60],[51.8,12.34],[52,11.75],[51.97,10.95],  #2600,660
+        [48.21,10.21],[43.79,11.51],[39.25,13.26],[38.29,14.6],[37.7,15.12],  #1880,440
+        [37.09,19.0],[38.0,21.29],[32.9,14.35],[31.1,11.17],[29.85,12.20],[28.6,13.7], #1435,545
+        [27.57,17.89],[26.79,15.07],[25.3,15.12], #1250,460
+        [20.77,15.83],[13.26,12.12],[12.65,10.3],[13.07,8.28]]  #540,835
+'''
 '''
 Follows a given plan using constant velocity and PID control of the steering angle
 '''
@@ -132,6 +144,12 @@ def pose_to_config(msg):
                      utils.quaternion_to_angle(msg.orientation)], 
                     np.float)  
 
+'''def pose_array_to_plan(msg):
+  result = []
+  for i in xrange(len(msg.poses)):
+    result.append(pose_to_config(msg.poses[i]))
+  return result'''
+
 def pose_array_to_plan(msg):
   result = []
   for i in xrange(len(msg.poses)):
@@ -156,7 +174,7 @@ def main():
   while not rospy.is_shutdown():
     raw_input("Press Enter to when plan available...")  
     pa_plan = rospy.wait_for_message(plan_topic, PoseArray)
-    plan = pose_array_to_plan(pa_plan)  
+    plan = pose_array,_to_plan(pa_plan)  
     plan_end = plan[-1]    
     lf = LineFollower(plan, pose_topic, plan_lookahead, translation_weight,
                rotation_weight, kp, ki, kd, error_buff_length, speed)

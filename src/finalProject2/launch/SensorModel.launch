@@ -2,13 +2,13 @@
 
 	<include file="$(find racecar)/launch/includes/common/map_server.launch"/>
 
-  <arg name="bag_path" default="/home/car-user/racecar_ws/src/ta_lab2/bags/laser_scans/laser_scan3.bag" />
+  <arg name="bag_path" default="/home/car-user/racecar_ws/src/finalProject2/bags/laser_scans/laser_scan3.bag" />
   <arg name="scan_topic" default="/scan" />
 	<arg name="laser_ray_step" default="18"/>
 	<arg name="exclude_max_range_rays" default="true" />
 	<arg name="max_range_meters" default="5.6" />
 	
-	<node pkg="ta_lab2" type="SensorModel.py" name="sensor_model" output="screen">
+	<node pkg="finalProject2" type="SensorModel.py" name="sensor_model" output="screen">
 	  <param name="bag_path" value="$(arg bag_path) " />
 	  <param name="scan_topic" value="$(arg scan_topic) " />
 		<param name="laser_ray_step" value="$(arg laser_ray_step)"/>

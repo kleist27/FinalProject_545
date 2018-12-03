@@ -1,6 +1,6 @@
 <launch>
 
-	<node name="laser_wanderer" type="laser_wanderer.py" pkg="ta_lab1" output="screen" >
+	<node name="laser_wanderer" type="laser_wanderer.py" pkg="finalProject2" output="screen" >
 		<param name="speed" type="double" value="1.0" />
 		<param name="min_delta" type="double" value="-0.34"/>
 		<param name="max_delta" type="double" value="0.34" />

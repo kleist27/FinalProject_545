@@ -1,0 +1,8 @@
+prefix=/home/car-user/FinalProject_545/devel
+
+Name: finalProject2
+Description: Description of finalProject2
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/car-user/FinalProject_545/devel/lib 
+Requires: 

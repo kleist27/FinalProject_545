@@ -1,6 +1,6 @@
 <launch> 
 
-	<node name="line_follower" type="line_follower.py" pkg="ta_lab1" output="screen" >
+	<node name="line_follower" type="line_follower.py" pkg="finalProject2" output="screen" >
 		<param name="plan_topic" type="string" value="/planner_node/car_plan"/>
 		<param name="pose_topic" type="string" value="/sim_car_pose/pose" />
 		<param name="plan_lookahead" type="int" value="5" />
