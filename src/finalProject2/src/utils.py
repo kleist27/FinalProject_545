@@ -8,6 +8,7 @@ from visualization_msgs.msg import Marker
 from geometry_msgs.msg import Point, Pose, PoseStamped, PoseArray, Quaternion, PolygonStamped,Polygon, Point32, PoseWithCovarianceStamped, PointStamped
 import tf.transformations
 import tf
+from nav_msgs.srv import GetMap
 import matplotlib.pyplot as plt
 
 '''
