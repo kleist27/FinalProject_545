@@ -47,6 +47,7 @@ class LineFollower:
     self.error_buff = collections.deque(maxlen=error_buff_length)
     self.plan = plan
     self.speed = speed
+    self.x = 0
    
     self.cmd_pub = rospy.Publisher(PUB_TOPIC, AckermannDriveStamped, queue_size=1)
     
@@ -76,7 +77,8 @@ class LineFollower:
    
     # Get the idx of point that we are heading towards
     goal_idx = min(self.plan_lookahead, len(self.plan)-1)
-   
+    self.x += 1
+    print(self.x)
     # Compute the offset of goal point
     goal_offset = rot_mat * ((self.plan[goal_idx][0:2]-cur_pose[0:2]).reshape(2,1))
     goal_offset.flatten()
@@ -154,7 +156,7 @@ def main():
   
   plan_topic = rospy.get_param('~plan_topic', '/world_pose_array')
   pose_topic = rospy.get_param('~pose_topic', '/sim_car_pose/pose')
-  plan_lookahead = rospy.get_param('plan_lookahead', 0)
+  plan_lookahead = rospy.get_param('plan_lookahead', 1)
   translation_weight = rospy.get_param('~translation_weight', 1.0)
   rotation_weight = rospy.get_param('~rotation_weight', 0.0)
   kp = rospy.get_param('~kp', 1.0)
