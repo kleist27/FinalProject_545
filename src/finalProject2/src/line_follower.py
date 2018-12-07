@@ -11,8 +11,8 @@ from ackermann_msgs.msg import AckermannDriveStamped
 import utils
 
 # The topic to publish control commands to
-PUB_TOPIC = '/vesc/high_level/ackermann_cmd_mux/input/nav_0'
-
+PUB_TOPIC = '/vesc/high_level/ackermann_cmd_mux/input/nav_1'
+POSE_TOPIC = "/pf/viz/inferred_pose"
 '''
 Follows a given plan using constant velocity and PID control of the steering angle
 '''
@@ -47,10 +47,11 @@ class LineFollower:
     self.error_buff = collections.deque(maxlen=error_buff_length)
     self.plan = plan
     self.speed = speed
-    
+   
     self.cmd_pub = rospy.Publisher(PUB_TOPIC, AckermannDriveStamped, queue_size=1)
     
-    self.pose_sub = rospy.Subscriber(pose_topic, PoseStamped, self.pose_cb, queue_size=1)
+    #self.pose_sub = rospy.Subscriber(pose_topic, PoseStamped, self.pose_cb, queue_size=1)
+    self.pose_sub = rospy.Subscriber(POSE_TOPIC, PoseStamped, self.pose_cb, queue_size=1)
 
   '''
   Computes the error based on the current pose of the car
@@ -144,6 +145,7 @@ def pose_array_to_plan(msg):
   result = []
   for i in xrange(len(msg.poses)):
     result.append(pose_to_config(msg.poses[i]))
+    #print(msg.poses[i])
   return result
 
 def main():
@@ -161,26 +163,6 @@ def main():
   error_buff_length = rospy.get_param('~error_buff_length', 10)
   speed = rospy.get_param('~speed', 1.0)
 
-  #quats = [[0,0,0.15,0.99],[0,0,-0.7,0.67],[0,0,0.998,0.05],[0,0,0.985,0.17],[0,0,0.98,0.19],[0,0,0.83,0.54],[0,0,-0.99,-0.12],[0,0,-0.9,0.42],	[0,0,-0.99,0.07],[0,0,0.91,0.41],[0,0,0.92,0.39],[0,0,0.99,0.001],[0,0,0.99,0.08], [0,0,-0.99,0.11],[0,0,-0.97,0.21],[0,0,-0.81,0.57]]  
-
-  #poses = [[49.29,12.4],[52,11.75],[48.21,10.21],[43.79,11.51],[39.25,13.26],[38.29,14.6],[36.56,17.5],[32.9,14.35],[31.1,11.17],        [29.85,12.20],[28.6,13.7],[26.79,15.07],[25.3,15.12],[20.77,15.83],[13.26,12.12],[11.5,10.54]]
-  #quats = [[0,0,-0.987,-0.158],[0,0,-0.987,-0.158],[0,0,-0.987,-0.158]]
-  #poses = [[48.99,14.79],[45.05,17.75],[40.05,17.71]]
-  #plan_array = []          
-                 
-  #for k in xrange(len(quats)):
-   #    temp_xy = poses[k]
-    #   temp_q = quats[k]
-     #  ori = Pose()
-      # ori.orientation.x = temp_q[0]
-       #ori.orientation.y = temp_q[1]
-       #ori.orientation.z = temp_q[2]
-       #ori.orientation.w = temp_q[3]
-       #plan_array.append(np.array([temp_xy[0], temp_xy[1], utils.quaternion_to_angle(ori.orientation)]))
-       #print(plan_array[k])
-
-  #plan = plan_array
-  #print(plan)
   while not rospy.is_shutdown():   
     raw_input("Press Enter to when plan available...")  
     pa_plan = rospy.wait_for_message(plan_topic, PoseArray)
@@ -194,3 +176,6 @@ def main():
 
 if __name__ == '__main__':
   main()
+
+
+
