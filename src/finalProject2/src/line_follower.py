@@ -68,17 +68,14 @@ class LineFollower:
       offset.flatten() 
       if offset[0] > 0.0:
         break
-        #print(offset)
       self.plan.pop(0)
-     # print(self.plan)
    
     if len(self.plan) <= 0:
       return False, 0.0
    
     # Get the idx of point that we are heading towards
     goal_idx = min(self.plan_lookahead, len(self.plan)-1)
-    self.x += 1
-    print(self.x)
+
     # Compute the offset of goal point
     goal_offset = rot_mat * ((self.plan[goal_idx][0:2]-cur_pose[0:2]).reshape(2,1))
     goal_offset.flatten()
@@ -147,7 +144,6 @@ def pose_array_to_plan(msg):
   result = []
   for i in xrange(len(msg.poses)):
     result.append(pose_to_config(msg.poses[i]))
-    #print(msg.poses[i])
   return result
 
 def main():
@@ -156,12 +152,12 @@ def main():
   
   plan_topic = rospy.get_param('~plan_topic', '/world_pose_array')
   pose_topic = rospy.get_param('~pose_topic', '/sim_car_pose/pose')
-  plan_lookahead = rospy.get_param('plan_lookahead', 1)
-  translation_weight = rospy.get_param('~translation_weight', 1.0)
-  rotation_weight = rospy.get_param('~rotation_weight', 0.0)
+  plan_lookahead = rospy.get_param('plan_lookahead', 5)
+  translation_weight = rospy.get_param('~translation_weight', 0.85)
+  rotation_weight = rospy.get_param('~rotation_weight', 0.15)
   kp = rospy.get_param('~kp', 1.0)
   ki = rospy.get_param('~ki', 0.0)
-  kd = rospy.get_param('~kd', 0.0)
+  kd = rospy.get_param('~kd', 0.15)
   error_buff_length = rospy.get_param('~error_buff_length', 10)
   speed = rospy.get_param('~speed', 1.0)
 
@@ -169,7 +165,9 @@ def main():
     raw_input("Press Enter to when plan available...")  
     pa_plan = rospy.wait_for_message(plan_topic, PoseArray)
     plan = pose_array_to_plan(pa_plan)  
-    plan_end = plan[-1]  
+    plan_end = plan[-1] 
+    #for i in xrange(len(plan)):
+    #  print(plan[i])
     lf = LineFollower(plan, pose_topic, plan_lookahead, translation_weight,
              rotation_weight, kp, ki, kd, error_buff_length, speed)
     while lf.pose_sub is not None:
