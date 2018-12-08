@@ -29,6 +29,7 @@ class VisionFinder:
     # Setup subscriber that subscribes that calls image_callback
     self.image_sub = rospy.Subscriber(SUB_TOPIC, Image, self.image_callback)
 
+    self.colorCheck = 0
   def image_callback(self, msg):
 
     #Bridges image to CV or ouputs error
@@ -71,6 +72,11 @@ class VisionFinder:
 
     #Checks if there is enough color in the image 
     if numWhitePoints > 100: #lower limit
+      self.colorCheck += 1
+    else:
+      self.colorCheck = 0
+
+    if self.colorCheck >= 2:
       X=0;Y=0
       for (x,y) in coordList:
         X+=x
