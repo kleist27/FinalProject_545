@@ -96,7 +96,7 @@ class LineFollower:
     if len(self.error_buff) >= 1:
       derror_dt = (error - self.error_buff[-1][0])/(now-self.error_buff[-1][1])
     
-    self.error_buff.append((error, now))
+    self.error_buff.appendleft((error, now))
     sum_error = 0.0
     for i in xrange(len(self.error_buff)-1):
       sum_error += 0.5*(self.error_buff[i][0]+self.error_buff[i+1][0])*(self.error_buff[i+1][1]-self.error_buff[i][1])
@@ -119,7 +119,21 @@ class LineFollower:
       self.speed = 0.0
       
     delta = self.compute_steering_angle(error)
-    
+    print(delta)
+    if ((cur_pose[0] > 38.5) and (cur_pose[0] < 46.4 )) or ((cur_pose[0] > 14.5) and (cur_pose[0] < 18.7)):
+      self.speed = 1.5
+      if (delta > .05):
+        delta = 0.05
+      elif delta < -0.05:
+        delta = -0.05
+      print(delta)
+    else:
+      self.speed = 1.0
+      if (delta > .25):
+        delta = 0.25
+      elif delta < -0.25:
+        delta = -0.25
+
     ads = AckermannDriveStamped()
     ads.header.frame_id = '/map'
     ads.header.stamp = rospy.Time.now()
@@ -166,8 +180,6 @@ def main():
     pa_plan = rospy.wait_for_message(plan_topic, PoseArray)
     plan = pose_array_to_plan(pa_plan)  
     plan_end = plan[-1] 
-    #for i in xrange(len(plan)):
-    #  print(plan[i])
     lf = LineFollower(plan, pose_topic, plan_lookahead, translation_weight,
              rotation_weight, kp, ki, kd, error_buff_length, speed)
     while lf.pose_sub is not None:

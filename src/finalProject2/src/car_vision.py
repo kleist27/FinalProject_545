@@ -103,7 +103,7 @@ class VisionFinder:
       move = AckermannDriveStamped()
       move.header.frame_id = '/map'
       move.header.stamp = rospy.Time.now()
-      move.drive.speed = 0.65
+      move.drive.speed = 0.75
       move.drive.steering_angle = steer
 
       #publish the commands with the best path
