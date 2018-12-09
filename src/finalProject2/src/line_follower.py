@@ -120,8 +120,8 @@ class LineFollower:
       
     delta = self.compute_steering_angle(error)
     print(delta)
-    if ((cur_pose[0] > 38.5) and (cur_pose[0] < 46.4 )) or ((cur_pose[0] > 14.5) and (cur_pose[0] < 18.7)):
-      self.speed = 1.5
+    if ((cur_pose[0] > 39.2) and (cur_pose[0] < 46.4 )) or ((cur_pose[0] > 13.0) and (cur_pose[0] < 18.7)):
+      self.speed = 1.75
       if (delta > .05):
         delta = 0.05
       elif delta < -0.05:
@@ -129,10 +129,10 @@ class LineFollower:
       print(delta)
     else:
       self.speed = 1.0
-      if (delta > .25):
-        delta = 0.25
-      elif delta < -0.25:
-        delta = -0.25
+      if (delta > .23):
+        delta = 0.23
+      elif delta < -0.23:
+        delta = -0.23
 
     ads = AckermannDriveStamped()
     ads.header.frame_id = '/map'
