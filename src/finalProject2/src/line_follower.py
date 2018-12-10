@@ -51,7 +51,6 @@ class LineFollower:
    
     self.cmd_pub = rospy.Publisher(PUB_TOPIC, AckermannDriveStamped, queue_size=1)
     
-    #self.pose_sub = rospy.Subscriber(pose_topic, PoseStamped, self.pose_cb, queue_size=1)
     self.pose_sub = rospy.Subscriber(POSE_TOPIC, PoseStamped, self.pose_cb, queue_size=1)
 
   '''
@@ -119,14 +118,14 @@ class LineFollower:
       self.speed = 0.0
       
     delta = self.compute_steering_angle(error)
-    print(delta)
+   
+    #Handles the speed & max steering angle for certain sections of the map(straight away's vs turns)
     if ((cur_pose[0] > 39.2) and (cur_pose[0] < 46.4 )) or ((cur_pose[0] > 13.0) and (cur_pose[0] < 18.7)):
       self.speed = 1.75
       if (delta > .05):
         delta = 0.05
       elif delta < -0.05:
         delta = -0.05
-      print(delta)
     else:
       self.speed = 1.0
       if (delta > .23):
@@ -134,6 +133,7 @@ class LineFollower:
       elif delta < -0.23:
         delta = -0.23
 
+    #returns the commands and publishes to nav_1
     ads = AckermannDriveStamped()
     ads.header.frame_id = '/map'
     ads.header.stamp = rospy.Time.now()

@@ -46,11 +46,11 @@ class VisionFinder:
     upper_blue = np.array([130,255,255])
 
     #Limits on red in HSV
-    lower_red = np.array([5, 50, 50])
-    upper_red = np.array([25, 255, 255])
+    #lower_red = np.array([5, 50, 50])
+    #upper_red = np.array([25, 255, 255])
 
     #masks for each color
-    mask_red = cv2.inRange(hsv, lower_red, upper_red)
+    #mask_red = cv2.inRange(hsv, lower_red, upper_red)
     mask_blue = cv2.inRange(hsv, lower_blue, upper_blue)
 
 
@@ -59,9 +59,9 @@ class VisionFinder:
    
     #masks the image for desired color range
     output_blue = cv2.bitwise_and(in_image, in_image, mask = mask_blue)
-    #output_red = cv2.bitwise_and(in_image, in_image, mask = mask_red)
 
-##############################################################################
+    #ouput for red
+    #output_red = cv2.bitwise_and(in_image, in_image, mask = mask_red)
 
     #Setup array of masked image
     cvImg = cv2.cvtColor(output_blue, 6) #cv2.COLOR_BGR2GRAY
@@ -76,6 +76,7 @@ class VisionFinder:
     else:
       self.colorCheck = 0
 
+    #Checks if our color has been in range for 3 frames
     if self.colorCheck >= 2:
       X=0;Y=0
       for (x,y) in coordList:
@@ -94,18 +95,18 @@ class VisionFinder:
       #DEBUG# 
       print("Center point: "+str(X_center)+","+str(Y_center))
       #DEBUG# 
-      #Height 480:::::::::::: Width 640
+
       cv2.circle(in_image,(X_center,Y_center), 10, (0,255,0), -1)
 
+      #Calculates the steering angle based on x position in the image
       steer = ((X_center / 1600.0) -.20) * -1.0
-      print(steer)
 
       move = AckermannDriveStamped()
       move.header.frame_id = '/map'
       move.header.stamp = rospy.Time.now()
       move.drive.speed = 0.75
       move.drive.steering_angle = steer
-
+      
       #publish the commands with the best path
       self.cmd_pub.publish(move) 
       
