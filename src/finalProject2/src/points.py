@@ -1,5 +1,9 @@
 #!/usr/bin/env python
+<<<<<<< HEAD
 #12/2/18
+=======
+#12/3/18
+>>>>>>> master
 import rospy
 import numpy as np
 from geometry_msgs.msg import PoseArray, Pose, PoseStamped
