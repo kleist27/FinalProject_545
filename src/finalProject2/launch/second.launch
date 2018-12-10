@@ -1,0 +1,7 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+
+	<node name="point_map" type="second.py" pkg="finalProject2" output="screen" >
+	</node>
+
+</launch>

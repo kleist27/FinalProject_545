@@ -5,26 +5,14 @@ import sys
 
 import rospy
 import numpy as np
-from geometry_msgs.msg import PoseArray, PoseStamped
+from geometry_msgs.msg import PoseArray, PoseStamped, Pose
 from ackermann_msgs.msg import AckermannDriveStamped
 
 import utils
 
 # The topic to publish control commands to
-PUB_TOPIC = '/vesc/high_level/ackermann_cmd_mux/input/nav_0'
-'''
-quats = [[0,0,0.15,0.99],[0,0,-0.33,0.99],[0,0,-0.39,0.91],[0,0,-0.7,0.67],[0,0,-0.86,0.51],   #2600,600
-        [0,0,0.998,0.05],[0,0,0.985,0.17],[0,0,0.98,0.19],[0,0,0.83,0.54],[0,0,0.89,0.45],    #1880,440
-        [0,0,0.64,0.76],[0,0,-0.37,0.92],[0,0,-0.9,0.42],[0,0,-0.99,0.07],[0,0,0.91,0.41],[0,0,0.92,0.39],  #1435,545
-        [0,0,0.91,0.44],[0,0,0.99,0.001],[0,0,0.99,0.08],  #1250,460
-        [0,0,-0.99,0.11],[0,0,-0.97,0.21],[0,0,-0.85,0.51],[0,0,-0.57,0.82]]  #???
-
-poses = [[49.29,12.4],[51.35,12.60],[51.8,12.34],[52,11.75],[51.97,10.95],  #2600,660
-        [48.21,10.21],[43.79,11.51],[39.25,13.26],[38.29,14.6],[37.7,15.12],  #1880,440
-        [37.09,19.0],[38.0,21.29],[32.9,14.35],[31.1,11.17],[29.85,12.20],[28.6,13.7], #1435,545
-        [27.57,17.89],[26.79,15.07],[25.3,15.12], #1250,460
-        [20.77,15.83],[13.26,12.12],[12.65,10.3],[13.07,8.28]]  #540,835
-'''
+PUB_TOPIC = '/vesc/high_level/ackermann_cmd_mux/input/nav_1'
+POSE_TOPIC = "/pf/viz/inferred_pose"
 '''
 Follows a given plan using constant velocity and PID control of the steering angle
 '''
@@ -49,7 +37,7 @@ class LineFollower:
   '''
   def __init__(self, plan, pose_topic, plan_lookahead, translation_weight,
                rotation_weight, kp, ki, kd, error_buff_length, speed):
-    self.plan = plan
+
     self.plan_lookahead = plan_lookahead
     self.translation_weight = translation_weight / (translation_weight+rotation_weight)
     self.rotation_weight = rotation_weight / (translation_weight+rotation_weight)
@@ -57,13 +45,14 @@ class LineFollower:
     self.ki = ki
     self.kd = kd
     self.error_buff = collections.deque(maxlen=error_buff_length)
-    
+    self.plan = plan
     self.speed = speed
-    
+    self.x = 0
+   
     self.cmd_pub = rospy.Publisher(PUB_TOPIC, AckermannDriveStamped, queue_size=1)
     
-    self.pose_sub = rospy.Subscriber(pose_topic, PoseStamped, self.pose_cb, queue_size=1)
-  
+    self.pose_sub = rospy.Subscriber(POSE_TOPIC, PoseStamped, self.pose_cb, queue_size=1)
+
   '''
   Computes the error based on the current pose of the car
     cur_pose: The current pose of the car, represented as a numpy array [x,y,theta]
@@ -75,7 +64,7 @@ class LineFollower:
     while len(self.plan) > 0:
       # Figure out if self.plan[0] is in front or behind car
       offset = rot_mat * ((self.plan[0][0:2]-cur_pose[0:2]).reshape(2,1))
-      offset.flatten()
+      offset.flatten() 
       if offset[0] > 0.0:
         break
       self.plan.pop(0)
@@ -85,7 +74,7 @@ class LineFollower:
    
     # Get the idx of point that we are heading towards
     goal_idx = min(self.plan_lookahead, len(self.plan)-1)
-   
+
     # Compute the offset of goal point
     goal_offset = rot_mat * ((self.plan[goal_idx][0:2]-cur_pose[0:2]).reshape(2,1))
     goal_offset.flatten()
@@ -106,7 +95,7 @@ class LineFollower:
     if len(self.error_buff) >= 1:
       derror_dt = (error - self.error_buff[-1][0])/(now-self.error_buff[-1][1])
     
-    self.error_buff.append((error, now))
+    self.error_buff.appendleft((error, now))
     sum_error = 0.0
     for i in xrange(len(self.error_buff)-1):
       sum_error += 0.5*(self.error_buff[i][0]+self.error_buff[i+1][0])*(self.error_buff[i+1][1]-self.error_buff[i][1])
@@ -129,7 +118,22 @@ class LineFollower:
       self.speed = 0.0
       
     delta = self.compute_steering_angle(error)
-    
+   
+    #Handles the speed & max steering angle for certain sections of the map(straight away's vs turns)
+    if ((cur_pose[0] > 39.2) and (cur_pose[0] < 46.4 )) or ((cur_pose[0] > 13.0) and (cur_pose[0] < 18.7)):
+      self.speed = 1.75
+      if (delta > .05):
+        delta = 0.05
+      elif delta < -0.05:
+        delta = -0.05
+    else:
+      self.speed = 1.0
+      if (delta > .23):
+        delta = 0.23
+      elif delta < -0.23:
+        delta = -0.23
+
+    #returns the commands and publishes to nav_1
     ads = AckermannDriveStamped()
     ads.header.frame_id = '/map'
     ads.header.stamp = rospy.Time.now()
@@ -160,37 +164,30 @@ def main():
 
   rospy.init_node('line_follower', anonymous=True) # Initialize the node
   
-  plan_topic = rospy.get_param('~plan_topic', '/planner_node/car_plan')
+  plan_topic = rospy.get_param('~plan_topic', '/world_pose_array')
   pose_topic = rospy.get_param('~pose_topic', '/sim_car_pose/pose')
   plan_lookahead = rospy.get_param('plan_lookahead', 5)
-  translation_weight = rospy.get_param('~translation_weight', 1.0)
-  rotation_weight = rospy.get_param('~rotation_weight', 0.0)
+  translation_weight = rospy.get_param('~translation_weight', 0.85)
+  rotation_weight = rospy.get_param('~rotation_weight', 0.15)
   kp = rospy.get_param('~kp', 1.0)
   ki = rospy.get_param('~ki', 0.0)
-  kd = rospy.get_param('~kd', 0.0)
+  kd = rospy.get_param('~kd', 0.15)
   error_buff_length = rospy.get_param('~error_buff_length', 10)
   speed = rospy.get_param('~speed', 1.0)
 
-  while not rospy.is_shutdown():
+  while not rospy.is_shutdown():   
     raw_input("Press Enter to when plan available...")  
     pa_plan = rospy.wait_for_message(plan_topic, PoseArray)
-    plan = pose_array,_to_plan(pa_plan)  
-    plan_end = plan[-1]    
+    plan = pose_array_to_plan(pa_plan)  
+    plan_end = plan[-1] 
     lf = LineFollower(plan, pose_topic, plan_lookahead, translation_weight,
-               rotation_weight, kp, ki, kd, error_buff_length, speed)
+             rotation_weight, kp, ki, kd, error_buff_length, speed)
     while lf.pose_sub is not None:
       rospy.sleep(1.0)
     print 'Reached the goal'
-    '''
-    while True:
-      new_pa_plan = rospy.wait_for_message(plan_topic, PoseArray)
-      new_plan = pose_array_to_plan(new_pa_plan)  
-      if np.sum(np.abs(plan_end-new_plan[-1])) > sys.float_info.epsilon:
-        plan = new_plan
-        plan_end = new_plan[-1]
-        break
-      rospy.sleep(1.0)
-    '''
 
 if __name__ == '__main__':
   main()
+
+
+
